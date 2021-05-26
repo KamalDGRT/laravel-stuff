@@ -13,7 +13,7 @@ class PostController extends Controller
      */
     public function index($name)
     {
-        return "The argument passed is : ". $name;
+        return "The argument passed is : " . $name;
     }
 
     /**
@@ -23,7 +23,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return "I am the method that creates stuff!";
     }
 
     /**
@@ -45,7 +45,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        return "The argument passed in show() method is : " . $id;
     }
 
     /**
@@ -56,7 +56,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        return "I am the one who updates stuff! Now updating: " . $id;
     }
 
     /**
