@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/post',[
-    PostController::class,
-    'index'
+Route::get('/post/{name}',[ // Route name with arguments
+    PostController::class,  // The controller
+    'index'                 // The method name in the Controller
 ]);

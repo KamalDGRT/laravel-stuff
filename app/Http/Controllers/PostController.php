@@ -11,9 +11,9 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($name)
     {
-        return "The view from the index of postController";
+        return "The argument passed is : ". $name;
     }
 
     /**
