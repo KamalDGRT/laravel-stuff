@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
     //     'index'                 // The method name in the Controller
     // ]);
 
-    Route::resource('post', PostController::class);
+    // Route::resource('post', PostController::class);
 
     Route::get('/contact', [PostController::class, 'contact']);
+
+    Route::get('/views/{id}', [PostController::class, 'show_post']);
