@@ -17,7 +17,10 @@
     </head>
     <body class="antialiased">
         <h1>
-        Post Here: argument passed: {{$id}}
+        Post Here: arguments passed: <br>
+        id :  {{$id}} <br>
+        name :  {{$name}} <br>
+        password :  {{$password}}
         </h1>
     </body>
 </html>

@@ -27,4 +27,6 @@ use Illuminate\Support\Facades\Route;
 
     Route::get('/contact', [PostController::class, 'contact']);
 
-    Route::get('/views/{id}', [PostController::class, 'show_post']);
+    Route::get('/views/{id}/{name}/{password}', 
+        [PostController::class, 'show_post']
+    );
