@@ -1,23 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('content')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<h1>Contact Page</h1>
 
-            <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-        <h1>
-        Contact Page
-        </h1>
-    </body>
-</html>
+@stop
+
+@section('footer')
+<script>alert('Hello visitor!');</script>
+@stop
