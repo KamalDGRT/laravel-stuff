@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::get('/post/{name}',[ // Route name with arguments
 //     PostController::class,  // The controller
@@ -25,9 +26,15 @@ Route::get('/', function () {
 
 // Route::resource('post', PostController::class);
 
-Route::get('/contact', [PostController::class, 'contact']);
+// Route::get('/contact', [PostController::class, 'contact']);
 
-Route::get(
-    '/views/{id}/{name}/{password}',
-    [PostController::class, 'show_post']
-);
+// Route::get(
+//     '/views/{id}/{name}/{password}',
+//     [PostController::class, 'show_post']
+// );
+
+
+Route::get('/insert', function () {
+    DB::insert('insert into post (title, content) values (?, ?)',
+        ['Yii2', 'Yii2 is one of the top 5 PHP Framework!']);
+});
