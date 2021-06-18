@@ -34,7 +34,27 @@ use Illuminate\Support\Facades\Route;
 // );
 
 
-Route::get('/insert', function () {
-    DB::insert('insert into post (title, content) values (?, ?)',
-        ['Yii2', 'Yii2 is one of the top 5 PHP Framework!']);
+/*
+|--------------------------------------------------------------------------
+| Database Raw SQL Routes
+|--------------------------------------------------------------------------
+*/
+
+
+// Route::get('/insert', function () {
+//     DB::insert('insert into post (title, content) values (?, ?)',
+//         ['Yii2', 'Yii2 is one of the top 5 PHP Framework!']);
+// });
+
+
+// Route::get('/read', function () {
+//     $results = DB::select('select * from post where id = ?', [1]);
+//     foreach ($results as $post) {
+//         return $post->title;
+//     }
+// });
+
+Route::get('/update', function () {
+    $updated = DB::update('UPDATE post SET title="Yii2Awesome" WHERE id = ?', [1]);
+    return $updated;
 });
