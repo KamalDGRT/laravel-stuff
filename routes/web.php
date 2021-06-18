@@ -54,7 +54,12 @@ use Illuminate\Support\Facades\Route;
 //     }
 // });
 
-Route::get('/update', function () {
-    $updated = DB::update('UPDATE post SET title="Yii2Awesome" WHERE id = ?', [1]);
-    return $updated;
+// Route::get('/update', function () {
+//     $updated = DB::update('UPDATE post SET title="Yii2Awesome" WHERE id = ?', [1]);
+//     return $updated;
+// });
+
+Route::get('/delete', function () {
+    $deleted = DB::delete('DELETE FROM post WHERE id = ?', ['1']);
+    return $deleted;
 });
