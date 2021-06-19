@@ -128,9 +128,20 @@ use App\Models\Post;
 
 // Creating and configuring mass assignment operation
 
-Route::get('/create', function () {
-    Post::create([
-        'title' => 'CakePHP',
-        'content' => 'It is also a PHP Framework.'
-    ]);
+// Route::get('/create', function () {
+//     Post::create([
+//         'title' => 'CakePHP',
+//         'content' => 'It is also a PHP Framework.'
+//     ]);
+// });
+
+// Updating with Eloquent
+
+Route::get('/update', function () {
+    Post::where('id', 2)
+        ->where('is_admin', 0)
+        ->update([
+            'title' => 'Just Laravel',
+            'content' => 'Yet another PHP after all'
+        ]);
 });
