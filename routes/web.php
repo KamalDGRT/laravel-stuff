@@ -71,20 +71,25 @@ use App\Models\Post;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/read', function () {
-    // This is saving all the records in the post variable.
-    $posts = Post::all();
+// Route::get('/read', function () {
+//     // This is saving all the records in the post variable.
+//     $posts = Post::all();
 
-    // Lets loop through it
-    $message = '';
-    foreach($posts as $post) {
-        $message .= $post->title;
-        $message .= '<br><br>';
-    }
-    return $message;
-});
+//     // Lets loop through it
+//     $message = '';
+//     foreach($posts as $post) {
+//         $message .= $post->title;
+//         $message .= '<br><br>';
+//     }
+//     return $message;
+// });
 
-Route::get('/find', function () {
-    $post = Post::find(2); // 2 is the id
-    return $post->title;
+// Route::get('/find', function () {
+//     $post = Post::find(2); // 2 is the id
+//     return $post->title;
+// });
+
+Route::get('/findwhere', function () {
+    $post = Post::where('id', 2)->orderBy('id', 'DESC')->take(1)->get();
+    return $post;
 });
