@@ -109,18 +109,28 @@ use App\Models\Post;
 
 // Inserting & saving data using Eloquent
 
-Route::get('/basicinsert', function () {
-    $post = new Post;
-    $post->title = "CodeIgniter";
-    $post->content = "CodeIgniter is yet another PHP framework.";
-    $post->save();
-    // save() will insert the record and can also be used to update record.
-});
+// Route::get('/basicinsert', function () {
+//     $post = new Post;
+//     $post->title = "CodeIgniter";
+//     $post->content = "CodeIgniter is yet another PHP framework.";
+//     $post->save();
+//     // save() will insert the record and can also be used to update record.
+// });
 
-Route::get('/basicinsert2', function () {
-    // To use the save() method for updating, you need to first find the record.
-    $post = Post::find(4);
-    $post->title = 'CodeIgniter PHP';
-    $post->save();
-    // save() will insert the record and can also be used to update record.
+// Route::get('/basicinsert2', function () {
+//     // To use the save() method for updating, you need to first find the record.
+//     $post = Post::find(4);
+//     $post->title = 'CodeIgniter PHP';
+//     $post->save();
+//     // save() will insert the record and can also be used to update record.
+// });
+
+
+// Creating and configuring mass assignment operation
+
+Route::get('/create', function () {
+    Post::create([
+        'title' => 'CakePHP',
+        'content' => 'It is also a PHP Framework.'
+    ]);
 });
