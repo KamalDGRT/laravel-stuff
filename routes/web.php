@@ -3,7 +3,7 @@
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,7 +59,32 @@ use Illuminate\Support\Facades\Route;
 //     return $updated;
 // });
 
-Route::get('/delete', function () {
-    $deleted = DB::delete('DELETE FROM post WHERE id = ?', ['1']);
-    return $deleted;
+// Route::get('/delete', function () {
+//     $deleted = DB::delete('DELETE FROM post WHERE id = ?', ['1']);
+//     return $deleted;
+// });
+
+
+/*
+|--------------------------------------------------------------------------
+| ELOQUENT Object Relational Model (ORM)
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/read', function () {
+    // This is saving all the records in the post variable.
+    $posts = Post::all();
+
+    // Lets loop through it
+    $message = '';
+    foreach($posts as $post) {
+        $message .= $post->title;
+        $message .= '<br><br>';
+    }
+    return $message;
+});
+
+Route::get('/find', function () {
+    $post = Post::find(2); // 2 is the id
+    return $post->title;
 });
