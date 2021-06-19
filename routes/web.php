@@ -71,6 +71,7 @@ use App\Models\Post;
 |--------------------------------------------------------------------------
 */
 
+// Reading data using Eloquent
 // Route::get('/read', function () {
 //     // This is saving all the records in the post variable.
 //     $posts = Post::all();
@@ -84,12 +85,23 @@ use App\Models\Post;
 //     return $message;
 // });
 
+// Fetching one record at a time
 // Route::get('/find', function () {
 //     $post = Post::find(2); // 2 is the id
 //     return $post->title;
 // });
 
-Route::get('/findwhere', function () {
-    $post = Post::where('id', 2)->orderBy('id', 'DESC')->take(1)->get();
+// Finding record with some constraints and chaining
+// Route::get('/findwhere', function () {
+//     $post = Post::where('id', 2)->orderBy('id', 'DESC')->take(1)->get();
+//     return $post;
+// });
+
+// Some more ways of retrieving record
+Route::get('/findmore', function () {
+    $post = Post::findOrFail(2); // 1
+    $posts = Post::where('users_count', '<', 50)->findOrFail(); // 2
+
     return $post;
+
 });
