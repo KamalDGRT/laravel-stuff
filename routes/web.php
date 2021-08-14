@@ -100,10 +100,8 @@ use App\Models\Post;
 // Some more ways of retrieving record
 // Route::get('/findmore', function () {
 //     $post = Post::findOrFail(2); // 1
-//     $posts = Post::where('users_count', '<', 50)->findOrFail(); // 2
-
+//     $posts = Post::where('users_count', '<', 50)->findOrFail(2); // 2
 //     return $post;
-
 // });
 
 
@@ -119,7 +117,7 @@ use App\Models\Post;
 
 // Route::get('/basicinsert2', function () {
 //     // To use the save() method for updating, you need to first find the record.
-//     $post = Post::find(4);
+//     $post = Post::find(3);
 //     $post->title = 'CodeIgniter PHP';
 //     $post->save();
 //     // save() will insert the record and can also be used to update record.
@@ -137,11 +135,11 @@ use App\Models\Post;
 
 // Updating with Eloquent
 
-Route::get('/update', function () {
-    Post::where('id', 2)
-        ->where('is_admin', 0)
-        ->update([
-            'title' => 'Just Laravel',
-            'content' => 'Yet another PHP after all'
-        ]);
-});
+// Route::get('/update', function () {
+//     Post::where('id', 2)
+//         ->where('is_admin', 0)
+//         ->update([
+//             'title' => 'Just Laravel',
+//             'content' => 'Yet another PHP after all'
+//         ]);
+// });
