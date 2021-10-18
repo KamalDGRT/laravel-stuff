@@ -164,3 +164,13 @@ Route::get('/', function () {
 // Route::get('/delete3', function () {
 //     Post::destroy([4, 5]);
 // });
+
+// Soft Deleting (Trashing)
+
+Route::get('/softdelete', function() {
+    Post::find(1)->delete();
+});
+
+// When you try to fetch after performing soft delete,
+// it won't fetch the deleted record. to do that, we will 
+// see in the next chapter.
