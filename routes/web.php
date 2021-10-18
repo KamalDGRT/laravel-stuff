@@ -15,9 +15,9 @@ use App\Models\Post;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route::get('/post/{name}',[ // Route name with arguments
 //     PostController::class,  // The controller
@@ -109,8 +109,8 @@ use App\Models\Post;
 
 // Route::get('/basicinsert', function () {
 //     $post = new Post;
-//     $post->title = "CodeIgniter";
-//     $post->content = "CodeIgniter is yet another PHP framework.";
+//     $post->title = "Spring";
+//     $post->content = "Spring is a Java Framework.";
 //     $post->save();
 //     // save() will insert the record and can also be used to update record.
 // });
@@ -136,10 +136,31 @@ use App\Models\Post;
 // Updating with Eloquent
 
 // Route::get('/update', function () {
-//     Post::where('id', 2)
+//     Post::where('id', 3)
 //         ->where('is_admin', 0)
 //         ->update([
-//             'title' => 'Just Laravel',
-//             'content' => 'Yet another PHP after all'
+//             'title' => 'CodeIgniter Duh!',
+//             'content' => 'It is a PHP Framework!'
 //         ]);
+// });
+
+// Deleting Data
+
+// Method 1
+// Route::get('/delete', function () {
+//     $post = Post::find(2);
+//     $post->delete();
+// });
+
+// Added a new record in Post before executing the method2
+// Spring,  Spring is a Java Framework.
+
+// Method 2
+// Route::get('/delete2', function () {
+//     Post::destroy(3);
+// });
+
+// Method 3
+// Route::get('/delete3', function () {
+//     Post::destroy([4, 5]);
 // });
