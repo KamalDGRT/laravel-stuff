@@ -197,3 +197,9 @@ Route::get('/softdelete', function () {
 //     return $post;
 //     // Returns Trashed + not trashed records
 // });
+
+
+// Restoring Trashed Items
+Route::get('/restore', function () {
+    Post::onlyTrashed()->restore();
+});
