@@ -118,7 +118,7 @@ Route::get('/', function () {
 // Route::get('/basicinsert2', function () {
 //     // To use the save() method for updating, you need to first find the record.
 //     $post = Post::find(3);
-//     $post->title = 'CodeIgniter PHP';
+//     $post->title = 'CodeIgniter PHP';    
 //     $post->save();
 //     // save() will insert the record and can also be used to update record.
 // });
@@ -167,10 +167,33 @@ Route::get('/', function () {
 
 // Soft Deleting (Trashing)
 
-Route::get('/softdelete', function() {
+Route::get('/softdelete', function () {
     Post::find(1)->delete();
+    // Post::find(2)->delete();
 });
 
 // When you try to fetch after performing soft delete,
 // it won't fetch the deleted record. to do that, we will 
 // see in the next chapter.
+
+
+// Retrieving soft deleted values
+
+// Fetching one record at a time
+// Route::get('/readsoftdelete', function () {
+//     // return $post;
+//     // $post = Post::find(1);
+//     // This did not work
+
+//     // $post = Post::withTrashed()->where('id', 1)->get();
+//     // return $post;
+//     // This fetched only one trashed record
+
+//     // $post = Post::onlyTrashed()->get();
+//     // return $post;
+//     // This fetched multiple trashed records
+
+//     $post = Post::withTrashed()->where('is_admin', 0)->get();
+//     return $post;
+//     // Returns Trashed + not trashed records
+// });

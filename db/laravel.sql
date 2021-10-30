@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 18, 2021 at 02:29 AM
+-- Generation Time: Oct 30, 2021 at 11:31 AM
 -- Server version: 10.5.10-MariaDB
 -- PHP Version: 7.4.24
 
@@ -58,7 +58,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2021_05_28_064954_create_post_table', 1),
-(5, '2021_06_18_022137_add_is_admin_column_to_post_table', 1);
+(5, '2021_06_18_022137_add_is_admin_column_to_post_table', 1),
+(6, '2021_10_18_034549_add_deleted_at_column_to_post_table', 1);
 
 -- --------------------------------------------------------
 
@@ -84,17 +85,18 @@ CREATE TABLE `post` (
   `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `is_admin` tinyint(4) NOT NULL DEFAULT 0
+  `is_admin` tinyint(4) NOT NULL DEFAULT 0,
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `post`
 --
 
-INSERT INTO `post` (`id`, `title`, `content`, `created_at`, `updated_at`, `is_admin`) VALUES
-(2, 'Just Laravel', 'Yet another PHP after all', NULL, '2021-08-14 01:24:47', 0),
-(3, 'CodeIgniter PHP', 'CodeIgniter is yet another PHP framework.', '2021-08-14 01:23:17', '2021-08-14 01:23:53', 0),
-(4, 'CakePHP', 'It is also a PHP Framework.', '2021-08-14 01:24:23', '2021-08-14 01:24:23', 0);
+INSERT INTO `post` (`id`, `title`, `content`, `created_at`, `updated_at`, `is_admin`, `deleted_at`) VALUES
+(1, 'Spring', 'Spring is a Java Framework.', '2021-10-30 05:31:14', '2021-10-30 05:33:54', 0, '2021-10-30 05:33:54'),
+(2, 'Yii2', 'Yii2 is one of the top 5 PHP Framework!', '2021-10-30 05:31:14', '2021-10-30 05:48:39', 0, '2021-10-30 05:48:39'),
+(3, 'CakePHP', 'It is also a PHP Framework.', '2021-10-30 05:51:31', '2021-10-30 05:51:31', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -163,13 +165,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
