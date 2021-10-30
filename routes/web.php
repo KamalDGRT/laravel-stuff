@@ -167,10 +167,10 @@ Route::get('/', function () {
 
 // Soft Deleting (Trashing)
 
-Route::get('/softdelete', function () {
-    Post::find(1)->delete();
-    // Post::find(2)->delete();
-});
+// Route::get('/softdelete', function () {
+//     // Post::find(1)->delete();
+//     Post::find(2)->delete();
+// });
 
 // When you try to fetch after performing soft delete,
 // it won't fetch the deleted record. to do that, we will 
@@ -200,6 +200,12 @@ Route::get('/softdelete', function () {
 
 
 // Restoring Trashed Items
-Route::get('/restore', function () {
-    Post::onlyTrashed()->restore();
+// Route::get('/restore', function () {
+//     Post::onlyTrashed()->restore();
+// });
+
+
+// Deleting records permanently
+Route::get('/forcedelete', function () {
+    Post::onlyTrashed()->where('id', 2)->forceDelete();
 });
